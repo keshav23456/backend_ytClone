@@ -5,14 +5,18 @@ import cookieParser from "cookie-parser"
 const app = express()
 
 // Updated CORS configuration
+// app.use(cors({
+//     origin: [
+//         process.env.CORS_ORIGIN || "http://localhost:5173",
+//         "http://localhost:5173",
+//         "http://127.0.0.1:5173",
+//         "http://localhost:3000", // In case you use port 3000 later
+//     ],
+//     credentials: true,
 app.use(cors({
-    origin: [
-        process.env.CORS_ORIGIN || "http://localhost:5173",
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000", // In case you use port 3000 later
-    ],
+    origin: "http://localhost:5173", // Your frontend URL
     credentials: true,
+
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: [
         'Content-Type', 
